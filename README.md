@@ -1,4 +1,4 @@
-# setup-cpd-on-rosa
+# How to setup Cloud Pak for Data on Red Hat OpenShift for AWS
 In this tutorial, you will learn how to setup CPD on ROSA
 
 ## Introduction
