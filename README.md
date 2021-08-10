@@ -30,7 +30,7 @@ The IAM user needs at least **Programmatic access** access type enabled and this
 
 - Optionally you can add Tags.
 
-- Review the details and create a user as shown.
+- Review the details and create a user.
 
 - On Successfully creating ***osdCcsAdmin*** IAM User **Download csv** as you will require the **Access key ID** and the **Secret access key** in further steps.
 
