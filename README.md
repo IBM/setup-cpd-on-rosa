@@ -8,11 +8,16 @@ State the purpose of your tutorial, your intended audience, and the benefits rea
 
 ## Prerequisites
 
-- Linux machine
+- [AWS account](https://aws.amazon.com/) is required to complete this tutorial.
+- Linux machine is required to run the terraform scripts
+- [Terraform CLI](https://www.terraform.io/downloads.html) is required to run the terraform scripts.
+- [AWS CLI](https://aws.amazon.com/cli/) is required to create instance on AWS.
+- [Kubectl CLI](https://kubernetes.io/docs/tasks/tools/install-kubectl/) is required to run the terraform scripts.
+- [ROSA CLI](https://cloud.redhat.com/products/amazon-openshift/download) is required to run the terraform scripts.
 
 ## Estimated time
 
-Provide guidance on how long it will reasonably take to complete the steps under normal circumstances.
+CPD is a complex system that takes a few hours to setup, however using this tutorial, you will be able to setup Cloud Pak for Data in about 45 minutes.
 
 ## Steps
 
@@ -51,6 +56,28 @@ The IAM user needs at least **Programmatic access** access type enabled and this
 
 #### Step 2.1: Enable ROSA instance and Download ROSA CLI
 
+- Goto the [Red Hat OpenShift service on AWS](console.aws.amazon.com/rosa/home) on your AWS console and enable the Red Hat OpenShift service.
+
+- You will get an option to download the [ROSA CLI](https://cloud.redhat.com/products/amazon-openshift/download). Download the CLI and move it to PATH.
+
+- In terminal, run the follwoing command to setup AWS CLI.
+  ```bash
+  aws configure
+  ```
+  ```
+  AWS Access Key ID [None]: <AWS Access Key ID>
+  AWS Secret Access Key [None]: <AWS Secret Access Key>
+  Default region name [None]: <AWS Region>
+  Default output format [None]: json
+  ```
+- Once the AWS CLI is configured, run the following command verify ROSA CLI.
+  ```bash
+  rosa verify permissions
+  ```
+  ```
+  I: Validating SCP policies...
+  I: AWS SCP policies ok
+  ```
 
 #### Step 2.2: Create ROSA instance and Deploy Cloud Pak for Data
 
@@ -115,7 +142,7 @@ The IAM user needs at least **Programmatic access** access type enabled and this
 
 - For example, In this tutorial you will learn how to enable Watson Studio, Cognos Analytics, Watson Machine Learning and Watson Knowledge Catalog.
 
-- Edit the `variable.tf` file and update the `watson_studio`, , `cognos_analytics`, `watson_machine_learning` and `watson_knowledge_catalog` variables to `default = yes`.
+- Edit the `variable.tf` file and update the `watson_studio`, `cognos_analytics`, `watson_machine_learning` and `watson_knowledge_catalog` variables to `default = yes`.
 
   ```
   variable "watson_studio" {
@@ -135,6 +162,7 @@ The IAM user needs at least **Programmatic access** access type enabled and this
   }
 
   ```
+
 
 ## Summary
 
